@@ -9,6 +9,14 @@ struct Customer {
     var firstName: String
     var lastName: String
     var age: Int
+    
+    /*extensionでinitを実装することで可能にする
+    init(firstName: String, lastName: String, age: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+    }
+     */
 }
 
 extension Customer {
@@ -53,6 +61,8 @@ let json = """
  */
 
 if let dictionay = try! JSONSerialization.jsonObject(with: json, options: .allowFragments) as? [[String: Any]] {
+        
+    print("💡", dictionay)
             
     //型 は [Customer] になる
     let customers = dictionay.compactMap {
